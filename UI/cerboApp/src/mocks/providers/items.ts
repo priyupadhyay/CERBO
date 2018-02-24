@@ -7,48 +7,38 @@ export class Items {
   items: Item[] = [];
 
   defaultItem: any = {
-    "name": "Burt Bear",
-    "profilePic": "assets/img/speakers/bear.jpg",
-    "about": "Burt is a Bear.",
+    "title": "Some topic",
+    "about": "Some meaningful data extracted of this meeting.",
+    "date": "24-07-2018 10:00 a.m",
+    "image": "https://www.tutorialspoint.com/images/netmeeting.jpg"
   };
 
 
   constructor() {
     let items = [
       {
-        "name": "Burt Bear",
-        "profilePic": "assets/img/speakers/bear.jpg",
-        "about": "Burt is a Bear."
+        "title": "Some topic",
+        "about": "Some meaningful data extracted of this meeting.",
+        "date": "24-07-2018 10:00 a.m",
+        "image": "https://www.tutorialspoint.com/images/netmeeting.jpg"
       },
       {
-        "name": "Charlie Cheetah",
-        "profilePic": "assets/img/speakers/cheetah.jpg",
-        "about": "Charlie is a Cheetah."
+        "title": "Some different topic",
+        "about": "Some meaningful data extracted of this meeting.",
+        "date": "24-07-2018 10:00 a.m",
+        "image": "https://www.tutorialspoint.com/images/netmeeting.jpg"
       },
       {
-        "name": "Donald Duck",
-        "profilePic": "assets/img/speakers/duck.jpg",
-        "about": "Donald is a Duck."
+        "title": "Some yet another topic",
+        "about": "Some meaningful data extracted of this meeting.",
+        "date": "24-07-2018 10:00 a.m",
+        "image": "https://www.tutorialspoint.com/images/netmeeting.jpg"
       },
       {
-        "name": "Eva Eagle",
-        "profilePic": "assets/img/speakers/eagle.jpg",
-        "about": "Eva is an Eagle."
-      },
-      {
-        "name": "Ellie Elephant",
-        "profilePic": "assets/img/speakers/elephant.jpg",
-        "about": "Ellie is an Elephant."
-      },
-      {
-        "name": "Molly Mouse",
-        "profilePic": "assets/img/speakers/mouse.jpg",
-        "about": "Molly is a Mouse."
-      },
-      {
-        "name": "Paul Puppy",
-        "profilePic": "assets/img/speakers/puppy.jpg",
-        "about": "Paul is a Puppy."
+        "title": "Some oldest topic",
+        "about": "Some meaningful data extracted of this meeting.",
+        "date": "24-07-2018 10:00 a.m",
+        "image": "https://www.tutorialspoint.com/images/netmeeting.jpg"
       }
     ];
 
