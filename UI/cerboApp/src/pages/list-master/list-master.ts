@@ -45,12 +45,13 @@ export class ListMasterPage {
       msg.forEach(item => {
         this.currentItems.push(item);
       });
+      this.test = JSON.stringify(this.currentItems);
     },
     (err) => {
       console.log(err);
     });
-    //this.test = JSON.stringify(this.currentItems);
-    this.test = this.currentItems.length.toString();
+    
+    //this.test = this.currentItems.length.toString();
   }
  
   /**

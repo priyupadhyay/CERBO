@@ -13,13 +13,13 @@
 </ion-header>
 
 <ion-content>
-<p> {{test}} </p>
+<!-- <p> {{test}} </p> -->
   <ion-list>
     <ion-item-sliding *ngFor="let item of currentItems">
       <button ion-item (click)="openItem(item)">
         <h1>{{item.title}}</h1>
-        <p>{{item.startDate}}</p>
-        <!-- <ion-note item-end *ngIf="item.note">{{item.endDate}}</ion-note> -->
+        <p>{{item.dtstart | date: 'dd-MM-yyyy'}}</p>
+        <ion-note item-end *ngIf="item.dtend">{{item.dtend | date: 'dd-MM-yyyy'}}</ion-note>
       </button>
 
       
