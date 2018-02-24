@@ -1,5 +1,5 @@
 import json
-filepath = 'C:/Users/parita_johari/Documents/GitHub/CERBO/APIs/DataCleaning/database3.txt'
+filepath = 'C:/Users/parita_johari/Documents/GitHub/CERBO/APIs/DataCleaning/database4.txt'
 
 pairs=[]
 list = []
@@ -18,7 +18,7 @@ try:
 		if(b[0] in dict.keys()):
 			i = dict[b[0]] + b[-1]
 		dict[b[0]] = i
-	i=27;
+	i=69;
 	
 	
 	d={}
