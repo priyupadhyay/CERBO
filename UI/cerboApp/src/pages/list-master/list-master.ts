@@ -25,6 +25,8 @@ export class ListMasterPage {
    * The view loaded, let's query our items for the list
    */
   ionViewDidLoad() {
+    //this.calendar.createCalendar("cerbo");
+    //this.calendar.createEvent("Something", "Pune", "Some random text", new Date(2018, 1, 5), new Date(2018, 1, 5));
     this.listSchedules();
   }
 
@@ -35,10 +37,11 @@ export class ListMasterPage {
       console.log(e);
     }
   }
+  
 
   listSchedules(){
     this.currentItems = [];
-    this.calendar.listCalendars().then((msg) => {
+    this.calendar.listEventsInRange(new Date(2017, 1, 5), new Date(2018, 1, 5)).then((msg) => {
       msg.forEach(item => {
         this.currentItems.push(item);
       });
