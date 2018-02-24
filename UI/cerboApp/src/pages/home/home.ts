@@ -40,16 +40,16 @@ export class HomePage {
         this.buttonText = "End Meeting";
         this.headerText = "Ongoing Meeting";
 
-        //after stop button is pressed.
-        this.api.callSummerizer({bData: 'Let us meet tomorrow.'}).subscribe((data)=>{
-        this.matches.push(this.apiResponse);
-
-
-        });
+        
       } else {
         this.buttonNamedColor = 'primary';
         this.buttonText = "Start Meeting";
         this.headerText = "Welcome to Cerbo";
+        
+        //after stop button is pressed.
+        this.api.callSummerizer({ bData: 'Let us meet tomorrow.' }).subscribe((data) => {
+          this.matches.push(this.apiResponse);
+        });
       }
     } 
 
