@@ -1,0 +1,20 @@
+
+	URL:https://resoomer.pro/summarizer/
+	Action: POST
+	ARGS:
+		API_KEY:0372FE894651476C945D8EEF3F0DAC36
+		text: give text here.
+		size: size in percentage(10, 20, etc)
+
+	Returns:
+	{
+		"ok":1,
+		"message":"ok",
+		"text":{
+			"size":45,
+			"total_words":219,
+			"content":"Your text summarize to 45%..."
+		},
+		"codeResponse":200
+	}
+
