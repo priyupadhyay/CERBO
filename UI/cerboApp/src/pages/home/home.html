@@ -7,21 +7,21 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>HOME</ion-title>
+    <ion-title>Welcome to Cerbo</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
-<ion-grid>
   <ion-row>
-    <ion-col>
-      <button ion-button round outline color="primary" class="btn">Start Meeting</button>
+
+    <ion-col col-1>
+      <button ion-button round outline [color]='buttonNamedColor' class="btn" (click)='startListening()'>{{buttonText}}</button>
     </ion-col>
+    
    </ion-row>
-</ion-grid>
+
 
 
 
