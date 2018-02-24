@@ -1,6 +1,4 @@
 import re
-import datetime
-import calendar
 filepath = 'new 1.txt'
 datepattern = '%d-%m-%Y'
 List = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
@@ -16,7 +14,6 @@ while file:
     z4=re.findall('evening',file)
     z4=re.findall('afternoon',file)
     z5 = re.findall('\d \w\w', file)
-    y = []
     i=0
     count+=1
     #print(z2)
