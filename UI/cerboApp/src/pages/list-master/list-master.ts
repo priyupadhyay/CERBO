@@ -62,6 +62,9 @@ export class ListMasterPage {
       item: item
     });
   }
+  openCal(str : string){
+      this.calendar.openCalendar(new Date(str));
+  }
 
 
   /**
