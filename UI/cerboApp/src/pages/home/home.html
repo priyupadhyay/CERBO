@@ -6,22 +6,28 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Welcome to Cerbo</ion-title>
+  <ion-navbar [color]='buttonNamedColor'>
+    <ion-title>{{headerText}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <ion-row>
 
+
+  <ion-row>
     <ion-col col-1>
+
       <button ion-button round outline [color]='buttonNamedColor' class="btn" (click)='startListening()'>{{buttonText}}</button>
     </ion-col>
     
    </ion-row>
+  <ion-row></ion-row>
 
+      <h2 ion-text color="primary" align="center">{{convertedText}}</h2>
+    
+   
 
 
 

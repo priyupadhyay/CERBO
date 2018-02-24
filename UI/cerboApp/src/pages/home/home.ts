@@ -16,6 +16,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class HomePage {
 	buttonNamedColor: string = 'primary';
 	buttonText: string = "Start Meeting";
+	headerText: string = "Welcome to Cerbo";
+	convertedText: string = "";
 
 
 
@@ -26,9 +28,11 @@ export class HomePage {
       if(this.buttonNamedColor === 'primary') { 
         this.buttonNamedColor = 'danger';
         this.buttonText = "End Meeting";
+        this.headerText = "Ongoing Meeting";
       } else {
         this.buttonNamedColor = 'primary';
         this.buttonText = "Start Meeting";
+        this.headerText = "Welcome to Cerbo";
       }
     } 
 
@@ -38,6 +42,7 @@ export class HomePage {
 
   startListening(){
 	this.toggleNamedColor();
+	this.convertedText = "Something happened to me so i am going home."
   }
 
 }
