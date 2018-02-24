@@ -6,10 +6,13 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-let runPy = new Promise(function (sucess, nosuccess) {
+function pyCall(para){
+return new Promise(function (sucess, nosuccess) {
 
   const { spawn } = require('child_process');
-  const pyprog = spawn('python', ['./../cerboBack/try.py']);
+ // var para = "Hi this is parameter"
+  const pyprog = spawn('python', ['./../cerboBack/try.py',para]);
+  
 
   pyprog.stdout.on('data', function (data) {
 
@@ -24,12 +27,17 @@ let runPy = new Promise(function (sucess, nosuccess) {
 
 });
 
+}
 router.post('/', (req, res, next) => {
 
-  runPy.then(function (fromRunpy) {
-    res.send(fromRunpy.toString());
-    res.end(fromRunpy);
-  });
+  var data = req.body.bData;
+  var op = pyCall(data);
+
+  
+  // runPy.then(function (fromRunpy,data) {
+  //   res.send(fromRunpy.toString());
+  //   res.end(fromRunpy);
+  // });
 
 })  
 
