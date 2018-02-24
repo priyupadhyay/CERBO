@@ -1,0 +1,3 @@
+Meeting scheduler api:
+
+URL:https://api.wit.ai/message?v=24022018&q="encoded message"&access_token=TB5SYTSBHU75YGGYNV5I3FAL6ABOCHW5
