@@ -14,12 +14,30 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'home.html',
 })
 export class HomePage {
+	buttonNamedColor: string = 'primary';
+	buttonText: string = "Start Meeting";
+
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  toggleNamedColor(): void {
+      if(this.buttonNamedColor === 'primary') { 
+        this.buttonNamedColor = 'danger';
+        this.buttonText = "End Meeting";
+      } else {
+        this.buttonNamedColor = 'primary';
+        this.buttonText = "Start Meeting";
+      }
+    } 
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
+  }
+
+  startListening(){
+	this.toggleNamedColor();
   }
 
 }
