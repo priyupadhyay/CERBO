@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SpeechRecognition } from '@ionic-native/speech-recognition';
 
 import {  NgZone } from '@angular/core';
+import { Api } from '../../providers/api/api';
 /**
  * Generated class for the HomePage page.
  *
@@ -22,13 +23,15 @@ export class HomePage {
 	convertedText: string = "";
 	isListening: boolean = false;
   matches: Array<String>;
+  apiResponse: any;
 
 
 
   constructor(public navCtrl: NavController, 
   	public navParams: NavParams, 
   	private speech: SpeechRecognition,
-  	private zone: NgZone) {
+    private zone: NgZone,
+    private api: Api) {
   }
 
   toggleNamedColor(): void {
@@ -36,6 +39,13 @@ export class HomePage {
         this.buttonNamedColor = 'danger';
         this.buttonText = "End Meeting";
         this.headerText = "Ongoing Meeting";
+
+        //after stop button is pressed.
+        this.api.callSummerizer({bData: 'Let us meet tomorrow.'}).subscribe((data)=>{
+        this.matches.push(this.apiResponse);
+
+
+        });
       } else {
         this.buttonNamedColor = 'primary';
         this.buttonText = "Start Meeting";
@@ -47,10 +57,9 @@ export class HomePage {
   	this.getPermission();
     //console.log('ionViewDidLoad HomePage');
   }
-
+  // After ending meeting make a function to save texts and then make api request.
   startListening(){
 	this.toggleNamedColor();
-	//this.convertedText = "Something happened to me so i am going home."
 	this.listen();
   }
 

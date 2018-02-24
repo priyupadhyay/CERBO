@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
  */
 @Injectable()
 export class Api {
-  url: string = 'http://localhost:3000/';
+  url: string = 'http://35.196.221.186:3000/dataFetch';
 
   constructor(private http: HttpClient) {
   }
@@ -31,8 +31,9 @@ export class Api {
 
   
 
-  callSummerizer(endpoint: string, body: any, reqOpts?: any){
-    return this.http.post(this.url + '/' + endpoint, body, reqOpts);
+  // edit this function
+  callSummerizer(body: any, reqOpts?: any){
+    return this.http.post(this.url, body, reqOpts);
   }
   
 }

@@ -12,6 +12,8 @@ export class CardsPage {
   currentItems: Item[];
 
   constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController) {
+    
+
     this.currentItems = this.items.query();
 
   }

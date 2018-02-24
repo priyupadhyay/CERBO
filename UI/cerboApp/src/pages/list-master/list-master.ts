@@ -38,7 +38,7 @@ export class ListMasterPage {
     }
   }
   
-
+// List only events made from cerbo app
   listSchedules(){
     this.currentItems = [];
     this.calendar.listEventsInRange(new Date(2017, 1, 5), new Date(2018, 1, 5)).then((msg) => {

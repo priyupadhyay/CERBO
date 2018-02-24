@@ -3,11 +3,6 @@
   <ion-navbar>
     <ion-title>Scheduled Meetings</ion-title>
 
-    <ion-buttons end>
-      <button ion-button icon-only (click)="addItem()">
-        <ion-icon name="add"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -18,8 +13,8 @@
     <ion-item-sliding *ngFor="let item of currentItems">
       <button ion-item (click)="openCal(item.dtstart)">
         <h1>{{item.title}}</h1>
-        <p>{{item.dtstart | date: 'dd-MM-yyyy'}}</p>
-        <ion-note item-end *ngIf="item.dtend">{{item.dtend | date: 'dd-MM-yyyy'}}</ion-note>
+        <p>{{item.dtstart | date: 'dd-MM-yyyy h:mm:ss a'}}</p>
+        <ion-note item-end *ngIf="item.dtend">{{item.dtend | date: 'dd-MM-yyyy h:mm:ss a'}}</ion-note>
       </button>
 
       
