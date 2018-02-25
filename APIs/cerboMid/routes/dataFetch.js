@@ -79,41 +79,41 @@ router.post('/', (req, res, next) => {
 // })
 
   //op.then(function(result){
-    result="{\
-        'error': false,\
-        'error_msg': '',\
-        'response': {\
-            'abstract_summary':{\
-                    'title': 'Some topic',\
-                    'about': 'Some meaningful data extracted of this meeting.',\
-                    'date': '24-07-2018 10:00 a.m',\
-                    'image': 'https://www.tutorialspoint.com/images/netmeeting.jpg'\
-                            },\
-            'minutes':[\
-                {\
-                    'note': 'some note list'\
-                },\
-                {\
-                    'note': 'some note list'\
-                },\
-                {\
-                    'note': 'some note list'\
-                }\
-            ],\
-            'events':[\
-                {\
-                    'title': 'myEvent',\
-                    'startDate': '2016-06-10 00:00:00',\
-                    'endDate': '2016-06-10 23:59:59',\
-                    'location': '',\
-                    'message': 'my description'\
-                }\
-            ]\
-        }\
-    }";
+    result={
+        'error': false,
+        'error_msg': '',
+        'response': {
+            'abstract_summary':{
+                    'title': 'Some topic',
+                    'about': 'Some meaningful data extracted of this meeting.',
+                    'date': '24-07-2018 10:00 a.m',
+                    'image': 'https://www.tutorialspoint.com/images/netmeeting.jpg'
+                            },
+            'minutes':[
+                {
+                    'note': 'some note list'
+                },
+                {
+                    'note': 'some note list'
+                },
+                {
+                    'note': 'some note list'
+                }
+            ],
+            'events':[
+                {
+                    'title': 'myEvent',
+                    'startDate': '2016-06-10 00:00:00',
+                    'endDate': '2016-06-10 23:59:59',
+                    'location': '',
+                    'message': 'my description'
+                }
+            ]
+        }
+    };
     //console.log(typeof JSON.stringify(result));
     res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify(result));
+    res.send(result);
   });
  
 
