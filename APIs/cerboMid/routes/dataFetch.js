@@ -17,7 +17,8 @@ function pyCall(para){
 }
 router.get('/test', (req, res, next) =>{
 
-    return 'bleh';
+    res.send('bleh');
+    //return 'bleh';
 });
 
 router.post('/', (req, res, next) => {
@@ -55,7 +56,8 @@ router.post('/', (req, res, next) => {
             ]
         }
     };
-    return resoomerCall();
+    //return resoomerCall();
+    res.send(result);
 });
 
 router.get('/bleh', (req, res, next) =>{
@@ -81,11 +83,11 @@ router.get('/bleh', (req, res, next) =>{
         // Start the request
         request(options, function (error, response, body) {
             if (!error && response.statusCode == 200) {
-
+                    res.send(body);
             }
-            var form=new FormData();
-            form.append('my_data','blleh');
-            return form;
+            // var form=new FormData();
+            // form.append('my_data','blleh');
+            // return form;
         })
         
    // }
