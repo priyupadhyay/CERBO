@@ -80,15 +80,23 @@ router.get('/bleh', (req, res, next) =>{
             body: {'API_KEY': '0372FE894651476C945D8EEF3F0DAC36', 'text': "According to nodejs.org, Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.",'size':'10'}
         }
     
-        // Start the request
-        request(options, function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-                    res.send(body);
-            }
-            // var form=new FormData();
-            // form.append('my_data','blleh');
-            // return form;
-        })
+        // // Start the request
+        // request(options, function (error, response, body) {
+        //     if (!error && response.statusCode == 200) {
+        //             res.send(body);
+        //     }
+        //     // var form=new FormData();
+        //     // form.append('my_data','blleh');
+        //     // return form;
+        // })
+
+    request.post({url: 'https://resoomer.pro/summarizer/', 
+                form: { API_KEY: '0372FE894651476C945D8EEF3F0DAC36', 
+                        text: "According to nodejs.org, Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.", 
+                        size: '10' } 
+    }, function (err, httpResponse, body) {
+        res.send(body);
+    } );
         
    // }
     
