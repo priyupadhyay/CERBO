@@ -24,6 +24,7 @@ export class HomePage {
 	isListening: boolean = false;
   matches: Array<String>;
   apiResponse: any;
+  text: string = '';
 
 
 
@@ -45,14 +46,15 @@ export class HomePage {
         this.buttonNamedColor = 'primary';
         this.buttonText = "Start Meeting";
         this.headerText = "Welcome to Cerbo";
-        
+
         //after stop button is pressed.
-        this.api.callSummerizer({ bData: 'Let us meet tomorrow.' }).subscribe((data) => {
-          this.matches.push(this.apiResponse);
+        this.api.callSummerizer({ bData: this.text }).subscribe((data) => {
+          
+          // furthur storage and other business
         });
       }
     } 
-
+ 
   ionViewDidLoad() {
   	this.getPermission();
     //console.log('ionViewDidLoad HomePage');
@@ -98,6 +100,7 @@ export class HomePage {
       .subscribe(matches => {
         _this.zone.run(() => {
           _this.matches = matches;
+          _this.text += matches[0];
         })
       }, error => console.error(error));
 
