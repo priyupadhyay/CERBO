@@ -24,11 +24,13 @@ router.get('/test', (req, res, next) =>{
 router.post('/', (req, res, next) => {
     var request = require('request');
     var summary = "";
+    var bData = req.body.bData;
+
     request.post({
         url: 'https://resoomer.pro/summarizer/',
         form: {
             API_KEY: '0372FE894651476C945D8EEF3F0DAC36',
-            text: "According to nodejs.org, Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.",
+            text: bData,
             size: '10'
         }
     }, function (err, httpResponse, body) {
