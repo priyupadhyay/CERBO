@@ -1,84 +1,28 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
-
 function pyCall(para){
-return new Promise(function (sucess, nosuccess) {
+    return new Promise(function (sucess, nosuccess) {
 
-  const { spawn } = require('child_process');
-  const pyprog = spawn('python', ['./../cerboBack/try.py',para]);
-  
-   pyprog.stdout.on('data', function (data) {
-    sucess(data);
+    const { spawn } = require('child_process');
+    const pyprog = spawn('python', ['./../cerboBack/try.py',para]);
+    
+    pyprog.stdout.on('data', function (data) {
+        sucess(data);
     });
-  pyprog.stderr.on('data', (data) => {
-
-    nosuccess(data);
-     });
-
-});
-
+    pyprog.stderr.on('data', (data) => {
+        nosuccess(data);
+        });
+    });
 }
+router.get('/test', (req, res, next) =>{
 
-
-// function resoomerCall(){
-//   var options = {
-//     host: "https://resoomer.pro",
-//     path: "summarizer/API_KEY=0372FE894651476C945D8EEF3F0DAC36&size=20&text="+"'This is where i will get the summary of the text. um um um um um um because i am stupid'",
-// 		method: "POST"
-//   };
-
-//   post_req = http.request(options, function(res) {
-//     res.setEncoding('utf8');
-//     consloe.log(res)
-//     res.on('data', function (chunk) {
-//         console.log('Response: ' + chunk);
-//     });
-
-  
-//   // router.post(options, function(res) {
-//   //   console.log(res.statusCode);
-//   //    console.log('HEADERS: ' + JSON.stringify(res.headers));
-//   //   // res.setEncoding('utf8');
-//   //   // res.on('data', function (chunk) {
-//   //   //   console.log('BODY: ' + chunk);
-//   //   // });
-//   // });
-// }
-
+    return 'bleh';
+});
 
 router.post('/', (req, res, next) => {
-
-  // var data = req.body.bData;
-  // var op = pyCall(data);
-
- //var abc =  resoomerCall();
-
-//  const request = require('request-promise');
-
-// // const options = {
-// //     method: 'POST',
-// //     uri: 'https://resoomer.pro/summarizer',
-// //     body: req.body,
-// //     json: true,
-// //     headers: {
-// //         'Content-Type': 'application/json',
-// //         'Authorization': 'bwejjr33333333333'
-// //     }
-// // }
-
-// request(options).then(function (response){
-//     res.status(200).json(response);
-// })
-// .catch(function (err) {
-//     console.log(err);
-// })
-
-  //op.then(function(result){
+    
+    
     result={
         'error': false,
         'error_msg': '',
@@ -111,13 +55,42 @@ router.post('/', (req, res, next) => {
             ]
         }
     };
-    //console.log(typeof JSON.stringify(result));
-    res.setHeader('Content-Type', 'application/json');
-    res.send(result);
-  });
- 
+    return resoomerCall();
+});
 
-//})  
+router.get('/bleh', (req, res, next) =>{
+   // function resoomerCall(){
+
+
+        var request = require('request');
+        var FormData= require('form-data');
+        
+        // Set the headers
+        var headers = {
+            'Content-Type':'form-data'
+        }
+    
+        // Configure the request
+        var options = {
+            url: 'resoomer.pro/summarizer/',
+            method: 'POST',
+            headers: headers,
+            body: {'API_KEY': '0372FE894651476C945D8EEF3F0DAC36', 'text': "According to nodejs.org, Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.",'size':'10'}
+        }
+    
+        // Start the request
+        request(options, function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+
+            }
+            var form=new FormData();
+            form.append('my_data','blleh');
+            return form;
+        })
+        
+   // }
+    
+});
 
 module.exports = router;
 
