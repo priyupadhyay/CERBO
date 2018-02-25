@@ -1,30 +1,38 @@
 import nltk
 import json
+filepath = 'C:/Users/kartik_pawar/Downloads/supreme_court_dialogs_corpus_v1.01/supreme_court_dialogs_corpus_v1.01/supreme.conversations.txt'
 
-filepath = 'Bdb001.trans'
+pairs=[]
 list = []
 grp = ""
-i = 0
+i = ''
+b = []
 dict = {}
+#words = set(nltk.corpus.words.words())
 try:
 	with open(filepath, 'r') as f:
 		for file in f:
-			line = file.split(",")[-1]
-			words = set(nltk.corpus.words.words())
-			a = " ".join(w for w in nltk.wordpunct_tokenize(line) if w.lower() in words or w.isnumeric())
-			#list.append(a)
-			if a != "":
-				grp = grp + a +"\n"
-			else:
-				dict[i] = grp
-				i = i+1
-				grp = ""
+			list.append(file)
 			
+	for a in list:
+		b = a.split('+++$+++')
+		if(b[0] in dict.keys()):
+			i = dict[b[0]] + b[-1]
+		dict[b[0]] = i
+	i=1;
+	
+	for k,v in dict.items():
+		fi = open("cleanData"+i+".txt","w")
+		fi.write("{Title: "+k+"Value:"+v)
+		fi.close
+		i++
+			
+	json = json.dumps(dict)
 	#print(list)
-	n = filepath.split('.')[0]
-	with open(n + '_data' + '.txt', 'w') as outfile:  
-		json.dump(dict, outfile)
+	#n = filepath.split('.')[0]
+	fi = open("cleanData.json","w")
+	fi.write(json)
 finally:
 	f.close()
-	outfile.close()
+	fi.close()
 
