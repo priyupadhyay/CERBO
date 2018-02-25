@@ -25,6 +25,8 @@ router.post('/', (req, res, next) => {
     var request = require('request');
     var summary = "";
     var bData = req.body.bData;
+    console.log(bData);
+    
 
     request.post({
         url: 'https://resoomer.pro/summarizer/',
