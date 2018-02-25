@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { SpeechRecognition } from '@ionic-native/speech-recognition';
 
 import {  NgZone } from '@angular/core';
 import { Api } from '../../providers/api/api';
+import { Item } from '../../models/item';
+import { Items } from '../../providers/providers';
+
+import { Calendar } from '@ionic-native/calendar';
 /**
  * Generated class for the HomePage page.
  *
@@ -23,7 +27,7 @@ export class HomePage {
 	convertedText: string = "";
 	isListening: boolean = false;
   matches: Array<String>;
-  apiResponse: any;
+  apiResponse: Item;
   text: string = '';
 
 
@@ -32,9 +36,18 @@ export class HomePage {
   	public navParams: NavParams, 
   	private speech: SpeechRecognition,
     private zone: NgZone,
-    private api: Api) {
+    private api: Api,
+    public items: Items,
+    private calendar: Calendar,
+    public loadingCtrl: LoadingController ) {
   }
-
+  async hasReadWritePermission(): Promise<void> {
+    try {
+      this.calendar.requestReadWritePermission();
+    } catch (e) {
+      console.log(e);
+    }
+  }
   toggleNamedColor(): void {
       if(this.buttonNamedColor === 'primary') { 
         this.buttonNamedColor = 'danger';
@@ -49,7 +62,12 @@ export class HomePage {
 
         //after stop button is pressed.
         this.api.callSummerizer({ bData: this.text }).subscribe((data) => {
-          this.apiResponse = data;
+          this.presentLoadingCustom();
+        this.apiResponse = data;
+        console.log(this.apiResponse);
+        this.addItem(this.apiResponse);
+        this.addEvents(this.apiResponse);
+        
           // furthur storage and other business
         });
       }
@@ -109,6 +127,35 @@ export class HomePage {
   toggleListenMode():void {
     this.isListening = this.isListening ? false : true;
     console.log('listening mode is now : ' + this.isListening);
+  }
+
+  addItem(item) { this.items.add(item);}
+
+  addEvents(item){
+    item.response.events.forEach(element => {
+      this.calendar.createEvent(element.title, element.location, element.message, new Date(element.startDate), new Date(element.endDate));
+    });
+    }
+
+
+  presentLoadingCustom() {
+    let loading = this.loadingCtrl.create({
+      spinner: 'hide',
+      content: `
+      <div class="custom-spinner-container">
+        <div class="custom-spinner-box">
+        <img src='assets/img/waiting.gif'>
+        <h2>Analyzing Data</h2>
+        </div>
+      </div>`,
+      duration: 5000
+    });
+
+    loading.onDidDismiss(() => {
+      console.log('Dismissed loading');
+    });
+
+    loading.present();
   }
 
 }

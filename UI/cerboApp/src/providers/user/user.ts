@@ -28,7 +28,12 @@ export class User {
   _user: any;
 
   constructor(public api: Api) { }
-
+  login(ai: any){
+    return true;
+  }
+  signup(ai: any) {
+    return true;
+  }
   /**
    * Send a POST request to our login endpoint with the data
    * the user entered on the form.

@@ -7,38 +7,72 @@ export class Items {
   items: Item[] = [];
 
   defaultItem: any = {
-    "title": "Some topic",
-    "about": "Some meaningful data extracted of this meeting.",
-    "date": "24-07-2018 10:00 a.m",
-    "image": "https://www.tutorialspoint.com/images/netmeeting.jpg"
+    "error": false,
+    "error_msg": "",
+    "response": {
+      "abstract_summary": {
+        "title": "Some topic",
+        "about": "Some meaningful data extracted of this meeting.",
+        "date": "24-07-2018 10:00 a.m",
+        "image": "https://www.tutorialspoint.com/images/netmeeting.jpg"
+      },
+      "minutes": [
+        {
+          "note": "some note list"
+        },
+        {
+          "note": "some note list"
+        },
+        {
+          "note": "some note list"
+        }
+      ],
+      "events": [
+        {
+          "title": "myEvent",
+          "startDate": "2016-06-10 00:00:00",
+          "endDate": "2016-06-10 23:59:59",
+          "location": "",
+          "message": "my description"
+        }
+      ]
+    }
   };
 
 
   constructor() {
     let items = [
       {
-        "title": "Some topic",
-        "about": "Some meaningful data extracted of this meeting.",
-        "date": "24-07-2018 10:00 a.m",
-        "image": "https://www.tutorialspoint.com/images/netmeeting.jpg"
-      },
-      {
-        "title": "Some different topic",
-        "about": "Some meaningful data extracted of this meeting.",
-        "date": "24-07-2018 10:00 a.m",
-        "image": "https://www.tutorialspoint.com/images/netmeeting.jpg"
-      },
-      {
-        "title": "Some yet another topic",
-        "about": "Some meaningful data extracted of this meeting.",
-        "date": "24-07-2018 10:00 a.m",
-        "image": "https://www.tutorialspoint.com/images/netmeeting.jpg"
-      },
-      {
-        "title": "Some oldest topic",
-        "about": "Some meaningful data extracted of this meeting.",
-        "date": "24-07-2018 10:00 a.m",
-        "image": "https://www.tutorialspoint.com/images/netmeeting.jpg"
+        "error": false,
+        "error_msg": "",
+        "response": {
+          "abstract_summary": {
+            "title": "Some topic",
+            "about": "Some meaningful data extracted of this meeting.",
+            "date": "24-07-2018 10:00 a.m",
+            "image": "https://www.tutorialspoint.com/images/netmeeting.jpg"
+          },
+          "minutes": [
+            {
+              "note": "some note list1"
+            },
+            {
+              "note": "some note list2"
+            },
+            {
+              "note": "some note list3"
+            }
+          ],
+          "events": [
+            {
+              "title": "myEvent",
+              "startDate": "2016-06-10 00:00:00",
+              "endDate": "2016-06-10 23:59:59",
+              "location": "",
+              "message": "my description"
+            }
+          ]
+        }
       }
     ];
 

@@ -8,11 +8,16 @@
 
 
 <ion-content>
-  <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.image + ')'">
+  <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.response.abstract_summary.image + ')'">
   </div>
 
   <div class="item-detail" padding>
-    <h2>{{item.title}}</h2>
-    <p>{{item.about}}</p>
+    <h2>{{item.response.abstract_summary.title}}</h2>
+    <p>{{item.response.abstract_summary.about}}</p>
+    <hr>
+    <h3>Minutes of meeting</h3>
+    <ion-list *ngFor="let minute of item.response.minutes">
+      <ion-item> {{minute.note}} </ion-item>
+    </ion-list>
   </div>
 </ion-content>

@@ -13,14 +13,14 @@
 
     <ion-item>
       
-      <h2>{{item.title}}</h2>
-      <p>{{item.date}}</p>
+      <h2>{{item.response.abstract_summary.title}}</h2>
+      <p>{{item.response.abstract_summary.date}}</p>
     </ion-item>
 
-    <img [src]="item.image">
+    <img [src]="item.response.abstract_summary.image">
 
     <ion-card-content>
-      <p>{{item.about}}</p>
+      <p>{{item.response.abstract_summary.about}}</p>
     </ion-card-content>
   </ion-card>
 </ion-content>
