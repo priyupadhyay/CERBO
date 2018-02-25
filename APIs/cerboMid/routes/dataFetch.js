@@ -56,7 +56,7 @@ router.post('/', (req, res, next) => {
   var data = req.body.bData;
   var op = pyCall(data);
 
- var abc =  resoomerCall();
+ //var abc =  resoomerCall();
 
 //  const request = require('request-promise');
 
