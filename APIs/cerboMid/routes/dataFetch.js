@@ -79,8 +79,7 @@ router.post('/', (req, res, next) => {
 // })
 
   //op.then(function(result){
-    result="\
-    {\
+    result="{\
         'error': false,\
         'error_msg': '',\
         'response': {\
@@ -113,6 +112,7 @@ router.post('/', (req, res, next) => {
         }\
     }";
     //console.log(typeof JSON.stringify(result));
+    res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify(result));
   });
  
@@ -120,3 +120,4 @@ router.post('/', (req, res, next) => {
 //})  
 
 module.exports = router;
+
