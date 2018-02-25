@@ -43,7 +43,8 @@ router.post('/', (req, res, next) => {
         
         var resultResoomer = JSON.parse(body);
         summary = resultResoomer.text.content;
-
+            console.log(summary);
+            
         result = {
             'error': false,
             'error_msg': '',
