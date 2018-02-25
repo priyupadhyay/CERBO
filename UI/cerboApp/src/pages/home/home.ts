@@ -118,7 +118,7 @@ export class HomePage {
       .subscribe(matches => {
         _this.zone.run(() => {
           _this.matches = matches;
-          _this.text += matches[0];
+          _this.text = matches[0];
         })
       }, error => console.error(error));
 
