@@ -49,7 +49,7 @@ export class HomePage {
 
         //after stop button is pressed.
         this.api.callSummerizer({ bData: this.text }).subscribe((data) => {
-          
+          this.apiResponse = data;
           // furthur storage and other business
         });
       }

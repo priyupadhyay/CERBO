@@ -113,7 +113,7 @@ router.post('/', (req, res, next) => {
         }\
     }";
     //console.log(typeof JSON.stringify(result));
-    res.send(result);
+    res.send(JSON.stringify(result));
   });
  
 
