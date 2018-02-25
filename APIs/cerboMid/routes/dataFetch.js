@@ -38,6 +38,8 @@ router.post('/', (req, res, next) => {
     }, function (err, httpResponse, body) {
         //res.send(body);
         console.log(bData);
+        console.log(err);
+        
         
         var resultResoomer = JSON.parse(body);
         summary = resultResoomer.text.content;
