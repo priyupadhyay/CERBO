@@ -53,8 +53,8 @@ return new Promise(function (sucess, nosuccess) {
 
 router.post('/', (req, res, next) => {
 
-  var data = req.body.bData;
-  var op = pyCall(data);
+  // var data = req.body.bData;
+  // var op = pyCall(data);
 
  //var abc =  resoomerCall();
 
@@ -71,14 +71,14 @@ router.post('/', (req, res, next) => {
 // //     }
 // // }
 
-request(options).then(function (response){
-    res.status(200).json(response);
-})
-.catch(function (err) {
-    console.log(err);
-})
+// request(options).then(function (response){
+//     res.status(200).json(response);
+// })
+// .catch(function (err) {
+//     console.log(err);
+// })
 
-  op.then(function(result){
+  //op.then(function(result){
     result="\
     {\
         'error': false,\
@@ -117,6 +117,6 @@ request(options).then(function (response){
   });
  
 
-})  
+//})  
 
 module.exports = router;
