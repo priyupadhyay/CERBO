@@ -35,41 +35,48 @@ router.post('/', (req, res, next) => {
         //res.send(body);
         var resultResoomer = JSON.parse(body);
         summary = resultResoomer.text.content;
-    });
-    result={
-        'error': false,
-        'error_msg': '',
-        'response': {
-            'abstract_summary':{
+
+        result = {
+            'error': false,
+            'error_msg': '',
+            'response': {
+                'abstract_summary': {
                     'title': 'Some topic',
                     'about': summary,
                     'date': new Date(),
                     'image': 'https://www.tutorialspoint.com/images/netmeeting.jpg'
-                            },
-            'minutes':[
-                {
-                    'note': 'some note list'
                 },
-                {
-                    'note': 'some note list'
-                },
-                {
-                    'note': 'some note list'
-                }
-            ],
-            'events':[
-                {
-                    'title': 'myEvent',
-                    'startDate': '2016-06-10 00:00:00',
-                    'endDate': '2016-06-10 23:59:59',
-                    'location': '',
-                    'message': 'my description'
-                }
-            ]
-        }
-    };
-    //return resoomerCall();
-    res.send(result);
+                'minutes': [
+                    {
+                        'note': 'some note list'
+                    },
+                    {
+                        'note': 'some note list'
+                    },
+                    {
+                        'note': 'some note list'
+                    }
+                ],
+                'events': [
+                    {
+                        'title': 'myEvent',
+                        'startDate': '2016-06-10 00:00:00',
+                        'endDate': '2016-06-10 23:59:59',
+                        'location': '',
+                        'message': 'my description'
+                    }
+                ]
+            }
+        };
+        //return resoomerCall();
+        res.send(result);
+
+
+
+
+
+    });
+    
 });
 
 router.get('/bleh', (req, res, next) =>{
